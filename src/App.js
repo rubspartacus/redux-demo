@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from "react";
+import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+const App = (props) => {
+  console.log(props);
+  const dispatch = useDispatch();
+  const count = useSelector((state) => state.count);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div>
+        <p>{count}</p>
+        <button onClick={() => dispatch({ type: "INCREMENT" })}>+</button>
+        <button onClick={() => dispatch({ type: "DECREMENT" })}>-</button>
+      </div>
+    </>
   );
-}
+};
+
+// function mapStateToProps(state) {
+//   console.log(state);
+//   return {
+//     count: state.count ,
+
+//   };
+
+// }
+
+// function mapDispatchToProps(dispatch) {
+//   return {
+
+//      increment: () => dispatch({type: 'INCREMENT'}),
+
+//    };
+
+//   }
+
+// export default connect(mapStateToProps, mapDispatchToProps)(App);
 
 export default App;
