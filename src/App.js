@@ -8,7 +8,7 @@ const App = (props) => {
   return (
     <>
       <div>
-        <p>{count}</p>
+        <p>{count} writing from git hub</p>
         <button onClick={() => dispatch({ type: "INCREMENT" })}>+</button>
         <button onClick={() => dispatch({ type: "DECREMENT" })}>-</button>
       </div>
